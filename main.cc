@@ -4,7 +4,7 @@
 #define PORT 3306
 #define USER "root"
 #define PASS "123456"
-#define DBNAME "c_gobang"
+#define DBNAME "cc_gobang"
 
 int main()
 {

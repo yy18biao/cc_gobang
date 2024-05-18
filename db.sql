@@ -1,6 +1,6 @@
-drop database if exists c_gobang;
-create database if not exists c_gobang;
-use c_gobang;
+drop database if exists cc_gobang;
+create database if not exists cc_gobang;
+use cc_gobang;
 create table if not exists user(
     id int primary key auto_increment,
     username varchar(32) unique key not null,
