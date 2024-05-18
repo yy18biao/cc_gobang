@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏房间</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/room.css">
+</head>
+
+<body>
+    <div class="til">nb五子棋</div>
+    <div id="data_div">
+        <div id="me"></div>
+        <div id="vs">VS</div>
+        <div id="rival"></div>
+    </div>
+    
+    <div id="container">
+        <div id="chess_area">
+            <canvas id="chess" width="450px" height="450px"></canvas>
+            <div id="screen"> 等待玩家连接中... </div>
+            <div id="return-hall"></div>
+        </div>
+        <div id="chat_area" width="400px" height="300px">
+            <div id="chat_show"></div>
+            <div id="msg_show">
+                <input type="text" id="chat_input">
+                <button id="chat_button">发送</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./js/room.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+
+<body>
+    <div class="til">注册</div>
+    <div class="login-container">
+        <div class="login-dialog">
+            <h3>注册</h3>
+            <div class="row">
+                <span>用户名</span>
+                <input type="text" id="user_name" name="username">
+            </div>
+            <div class="row">
+                <span>密码</span>
+                <input type="password" id="password" name="password">
+            </div>
+            <div class="row">
+                <button id="submit" onclick="reg()">注册</button>
+            </div>
+            <div class="row">
+                <button id="submit2" onclick="login()">返回</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script>
+        function login() {
+            window.location.assign("login.html");
+        }
+        function reg() {
+            var username = document.getElementById("user_name").value
+            var password = document.getElementById("password").value
+
+            // 判断输入的数据是否为空
+            if(username == ""){
+                alert("请输入用户名！");
+                // 聚焦光标
+                jQuery("#user_name").focus();
+                return false;
+            }
+            if(password == ""){
+                alert("请输入密码！");
+                // 聚焦光标
+                jQuery("#password").focus();
+                return false;
+            }
+
+
+            // 获取两个输入框空间中的数据，组织成为一个json串
+            var reg_info = {
+                username: username,
+                password: password
+            };
+            
+            console.log(JSON.stringify(reg_info));
+            //  通过ajax向后台发送用户注册请求
+            $.ajax({
+                url: "/reg",
+                type: "post",
+                data: JSON.stringify(reg_info),
+                success: function (res) {
+                    if (res.result == false) {
+                        //  如果请求失败，则清空两个输入框内容，并提示错误原因
+                        document.getElementById("user_name").value = "";
+                        document.getElementById("password").value = "";
+                        alert(res.reason);
+                    } else {
+                        //  如果请求成功，则跳转的登录页面
+                        alert(res.reason);
+                        window.location.assign("/login.html");
+                    }
+                },
+                error: function (xhr) {
+                    document.getElementById("user_name").value = "";
+                    document.getElementById("password").value = "";
+                    alert(JSON.stringify(xhr));
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

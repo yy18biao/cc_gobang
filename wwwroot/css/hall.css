@@ -1,0 +1,194 @@
+.hall-container{
+    width: 80%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.friends-head{
+    height: 50px;
+    font-size: 25px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.friends{
+    width: 20%;
+    height: 100%;
+    background-color: gray;
+}
+
+.list {
+    height: calc(100% - 52px);
+    overflow: auto;
+}
+
+#add{
+    width: 25px;
+    height: 25px;
+}
+
+#friends-list li {
+    height: 10%;
+    padding: 10px 20px;
+    color: white;
+    border-top: 1px solid black;
+    display: flex;
+} 
+
+#friends-list li img{
+    width: 20%;  /* 设置宽度 */
+    height: 100%; /* 设置高度 */
+    border-radius: 50%; /* 设置边框半径为50%，使得容器形成圆形 */
+    overflow: hidden; /* 隐藏超出容器的部分 */
+    display: flex; /* 使得子元素（图片）居中 */
+}
+
+#friends-list li button {
+    height: 20px;
+    float: right;
+    width: 30%;
+    background-color: orange;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+
+#friends-list li div {
+    font-size: auto;
+    width: 50%;
+}
+
+#screen {
+    width: 450px;
+    height: 250px;
+    font-size: 20px;
+    background-color: gray;
+    color: white;
+    border-radius: 10px;
+
+    text-align: center;
+    line-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#invite{
+    width: 450px;
+    height: 40px;
+
+    font-size: 20px;
+    line-height: 40px;
+    padding-left: 10px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+
+#match-button {
+    width: 450px;
+    height: 50px;
+    font-size: 20px;
+    color: white;
+    background-color: orange;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+
+    text-align: center;
+    line-height: 50px;
+    margin-top: 20px;
+}
+
+#match-button:active {
+    background-color: gray;
+}
+
+#head{
+    width: 120px;  /* 设置宽度 */
+    height: 120px; /* 设置高度 */
+    border-radius: 50%; /* 设置边框半径为50%，使得容器形成圆形 */
+    overflow: hidden; /* 隐藏超出容器的部分 */
+    display: flex; /* 使得子元素（图片）居中 */
+    align-items: center;
+    justify-content: center;
+}
+
+#file-button{
+    width: 186px;  /* 设置宽度 */
+    height: 30px; /* 设置高度 */
+    background-color: orange;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    color: white;
+}
+
+#search {
+    height: 50px;
+    padding: 0 20px;
+
+    /* 使用弹性布局, 让里面的元素, 水平方向排列 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#search input {
+    height: 34px;
+    width: 200px;
+    line-height: 34px;
+    font-size: 14px;
+    color: white;
+    background-color: rgb(38, 41, 46);
+
+    /* 去除边框和轮廓线 */
+    border: none;
+    outline: none;
+    /* 输入框里的文字和左侧边界有个边距 */
+    padding-left: 10px;
+
+    border-radius: 5px;
+}
+
+#button1{
+    height: 34px;
+    width: 34px;
+    border: none;
+    outline: none;
+
+    background-color: white;
+
+    border-radius: 5px;
+    background-image: url(../img/ret.png);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: center center;
+}
+
+#button2 {
+    height: 34px;
+    width: 34px;
+    border: none;
+    outline: none;
+
+    background-color: whitesmoke;
+
+    border-radius: 5px;
+    background-image: url(../img/search.png);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: center center;
+}
+
+#search button:active {
+    background-color: grey;
+}

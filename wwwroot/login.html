@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+
+<body>
+    <div class="til">登录</div>
+    <div class="login-container">
+        <div class="login-dialog">
+            <h3>登录</h3>
+            <div class="row">
+                <span>用户名</span>
+                <input type="text" id="user_name">
+            </div>
+            <div class="row">
+                <span>密码</span>
+                <input type="password" id="password">
+            </div>
+            <div class="row">
+                <button id="submit" onclick="login()">登录</button>
+            </div>
+
+            <div class="row">
+                <button id="submit2" onclick="reg()">注册</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        function login() {
+            var username = document.getElementById("user_name").value
+            var password = document.getElementById("password").value
+
+            // 判断输入的数据是否为空
+            if(username == ""){
+                alert("请输入用户名！");
+                // 聚焦光标
+                jQuery("#user_name").focus();
+                return false;
+            }
+            if(password == ""){
+                alert("请输入密码！");
+                // 聚焦光标
+                jQuery("#password").focus();
+                return false;
+            }
+
+
+            // 获取两个输入框空间中的数据，组织成为一个json串
+            var login_info = {
+                username: username,
+                password: password
+            };
+            
+            // 通过ajax向后台发送登录验证请求
+            $.ajax({
+                url: "/login",
+                type: "post",
+                data: JSON.stringify(login_info),
+                success: function (result) {
+                    window.location.assign("/hall.html");
+                },
+                error: function (xhr) {
+                    // 如果验证失败，则提示错误信息，并清空输入框
+                    alert(JSON.stringify(xhr));
+                    document.getElementById("user_name").value = "";
+                    document.getElementById("password").value = "";
+                }
+            })
+        }
+        function reg() {
+            window.location.assign("register.html");
+        }
+    </script>
+</body>
+
+</html>
